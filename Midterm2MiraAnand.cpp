@@ -10,7 +10,10 @@
 #include <vector>
 using namespace std;
 
-const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+const int HELPED = 40;
+const int JOINING = 60;
+const int LEAVE = 20;
+
 
 class DoublyLinkedList {
 private:
@@ -218,6 +221,28 @@ int main() {
 
     // create a vector container to store names of customers
     vector<string> customerNames;
+    string name; // to hold a customer name
+
+    // declaration and initialization of a string variable that holds the name of the input file to read data from
+    string inputFile = "names.txt";
+    // creation of an ifsteam (input file) object
+    ifstream fin;
+    // open the input file
+    fin.open(inputFile);
+
+    if (!fin) // check if input file opens correctly
+    {
+        cout << "ERROR: Input file could not be opened. Now exiting..." << endl;
+    }
+    else
+    {
+        while (fin >> name)
+        {
+            customerNames.push_back(name);
+        }
+
+        fin.close();
+    }
 
     DoublyLinkedList coffeeLine; // creation of a DoublyLinkedList object
 
