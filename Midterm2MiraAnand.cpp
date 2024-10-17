@@ -2,7 +2,12 @@
 // Module 8 - Midterm Exam
 // IDE used: Visual Studio Code for Mac
 
+#include <cstdlib> // needed to generate a random number
+#include <ctime> // needed to generate a random number
+#include <fstream>
 #include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -208,8 +213,13 @@ public:
 };
 
 int main() {
-    cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
-
     
+    srand(time(0)); // needed as the first line in main() for randomization
+
+    // create a vector container to store names of customers
+    vector<string> customerNames;
+
+    DoublyLinkedList coffeeLine; // creation of a DoublyLinkedList object
+
     return 0;
 }
