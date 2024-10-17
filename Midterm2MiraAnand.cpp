@@ -10,10 +10,13 @@
 #include <vector>
 using namespace std;
 
-const int HELPED = 40;
-const int JOINING = 60;
-const int LEAVE = 20;
-
+const int STORE_OPENS = 5;
+const int TIME_PERIOD = 20;
+const int HELPED_BEGINNING = 40;
+const int JOINING_END = 60;
+const int LEAVE_END = 20;
+const int LEAVE_ANY = 10;
+const int VIP = 10;
 
 class DoublyLinkedList {
 private:
@@ -245,6 +248,14 @@ int main() {
     }
 
     DoublyLinkedList coffeeLine; // creation of a DoublyLinkedList object
+
+    // opening of store
+    cout << "Store opens:" << endl;
+    for (int i = 0; i < STORE_OPENS; i++)
+    {
+        string openingCustomersName = customerNames[rand() % customerNames.size()];
+        coffeeLine.push_back(openingCustomersName);
+    }
 
     return 0;
 }
