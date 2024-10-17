@@ -31,10 +31,11 @@ private:
         }
     };
 
-    Node* head;
-    Node* tail;
 
 public:
+     Node* head;
+    Node* tail;
+    
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
     void insert_after(string value, int position) {
@@ -261,7 +262,19 @@ int main() {
     coffeeLine.print();
 
     for (int timePeriod = 1; timePeriod <= TIME_PERIOD; timePeriod++)
+    {
         cout << "Time step #" << timePeriod << ":" << endl;
+
+        if (coffeeLine.head && (rand() % 100 < HELPED_BEGINNING)) {
+            coffeeLine.pop_front();
+        }
+
+        if (rand() % 100 < JOINING_END) {
+            string newCustomer = customerNames[rand() % customerNames.size()];
+            coffeeLine.push_back(newCustomer);
+            cout << "    " << newCustomer << " joined the line." << endl;
+        }
+    }
 
     return 0;
 }
